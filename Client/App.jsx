@@ -16,7 +16,7 @@ export default function App() {
     </NavigationContainer>
   );
 } 
-
+// 9.55 5th
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
