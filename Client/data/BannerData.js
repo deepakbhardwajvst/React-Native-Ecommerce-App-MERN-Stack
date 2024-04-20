@@ -1,3 +1,4 @@
+
 export const BannerData = [
   {
     _id: 1,
@@ -28,4 +29,4 @@ export const BannerData = [
     cornerLabelText: "-20%",
   },
 ];
- 
+  
