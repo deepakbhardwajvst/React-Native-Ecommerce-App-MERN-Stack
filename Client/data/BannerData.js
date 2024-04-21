@@ -8,7 +8,7 @@ export const BannerData = [
     cornerLabelText: "GOTY",
   },
   {
-    _id: 2,
+    _id: 2,  
     coverImageUri:
       "https://user-images.githubusercontent.com/6414178/73920358-336f9600-4900-11ea-8eec-cc919b991e90.jpg",
     cornerLabelColor: "#0080ff",
