@@ -3,15 +3,20 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 import Categories from "../../components/Categories/Categories";
 import Banner from "./../../components/Banner/Banner";
+import Products from "../../components/Products/Products";
 
 const Home = () => {
   return (
     <Layout>
       <Categories />
-      <Banner />
-      <View>
-        <Text>Homefda</Text>
-      </View>
+      <Banner  /> 
+      {/* <Banner  />  */}
+    
+      {/* <View style={styles.container}>
+        <Text>Products</Text>
+      </View > */}
+   
+      <Products  /> 
     </Layout>
   );
 };
@@ -20,10 +25,8 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+marginTop:20,
+marginBottom:20,
   },
   text: {
     color: "#fff",

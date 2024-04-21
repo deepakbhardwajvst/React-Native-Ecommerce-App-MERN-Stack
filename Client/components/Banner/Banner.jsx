@@ -51,8 +51,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    // marginBottom:50,
   },
   cardContainer: {
+    // marginBottom:50,
     alignItems: "center",
     justifyContent: "center",
     width,

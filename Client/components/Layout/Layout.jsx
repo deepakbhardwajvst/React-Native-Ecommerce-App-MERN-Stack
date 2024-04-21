@@ -10,10 +10,10 @@ const Layout = ({children}) => {
     <StatusBar />
     <Header />
       <Text>{children}</Text>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
-}
+} 
 
 export default Layout
 

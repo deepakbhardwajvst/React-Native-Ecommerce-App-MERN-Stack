@@ -21,7 +21,7 @@ const Header = () => {
           onChangeText={(e) => {
             setSearchText(e);
           }}
-        />
+        /> 
         <TouchableOpacity style={styles.searchBtn} onPress={searchHandler}>
           <FontAwesome name="search" style={styles.icon} />
         </TouchableOpacity>

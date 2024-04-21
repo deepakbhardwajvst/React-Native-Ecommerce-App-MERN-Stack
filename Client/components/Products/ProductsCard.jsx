@@ -6,27 +6,27 @@ const ProductsCard = ({ p }) => {
   const navigation = useNavigation();
 
   //more details btn
-  const handleMoreButton = (id) => {
-    navigation.navigate("productDetails", { _id: id });
-    console.log(id);
-  };
+//   const handleMoreButton = (id) => {
+//     navigation.navigate("productDetails", { _id: id });
+//     console.log(id);
+//   };
 
   //ADD TO CART
   const handleAddToCart = () => {
     alert("added to cart");
   };
   return (
-    <View>
+    <View style={styles?.cards}>
       <View style={styles?.card}>
         <Image style={styles?.cardImage} source={{ uri: p?.imageUrl }} />
         <Text style={styles?.cardTitle}>{p?.name}</Text>
         <Text style={styles?.cardDesc}>
-          {p?.description?.substring(0, 30)} ...more
+          {p?.description.substring(0, 30)} ...more
         </Text>
         <View style={styles?.BtnContainer}>
           <TouchableOpacity
             style={styles?.btn}
-            onPress={() => handleMoreButton(p._id)}
+            // onPress={() => handleMoreButton(p?._id)}
           >
             <Text style={styles?.btnText}>Details</Text>
           </TouchableOpacity>
@@ -40,20 +40,26 @@ const ProductsCard = ({ p }) => {
 };
 
 const styles = StyleSheet.create({
+    cards:{
+        width:"full",
+        marginVertical: 10
+    },
   card: {
     borderWidth: 1,
     borderColor: "lightgray",
     marginVertical: 5,
     marginHorizontal: 8,
-    width: "45%",
+    width:155,
     padding: 10,
     backgroundColor: "#ffffff",
     justifyContent: "center",
+    // margin:30,
   },
   cardImage: {
     height: 120,
     width: "100%",
     marginBottom: 10,
+    objectFit:"contain"
   },
   cardTitle: {
     fontSize: 10,
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: "#000000",
     height: 20,
-    width: 75,
+    width: 55,
     borderRadius: 5,
     justifyContent: "center",
   },
