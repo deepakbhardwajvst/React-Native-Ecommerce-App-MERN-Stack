@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import { StyleSheet, Text, View } from "react-native";
 import Home from "./screens/Home/Home";
 import About from "./screens/About/About";
+import ProductDetails from "./screens/ProductDetails/ProductDetails";
+
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -12,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="home">
         <Stack.Screen name="home" component={Home} options={{headerShown:false,}}/>
         <Stack.Screen name="about" component={About} options={{headerShown:false,}}/>
+        <Stack.Screen name="productDetails" component={ProductDetails} options={{headerShown:false,}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

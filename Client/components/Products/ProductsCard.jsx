@@ -6,10 +6,10 @@ const ProductsCard = ({ p }) => {
   const navigation = useNavigation();
 
   //more details btn
-//   const handleMoreButton = (id) => {
-//     navigation.navigate("productDetails", { _id: id });
-//     console.log(id);
-//   };
+  const handleMoreButton = (id) => {
+    navigation.navigate("productDetails", { _id: id });
+    console.log(id);
+  };
 
   //ADD TO CART
   const handleAddToCart = () => {
@@ -26,7 +26,7 @@ const ProductsCard = ({ p }) => {
         <View style={styles?.BtnContainer}>
           <TouchableOpacity
             style={styles?.btn}
-            // onPress={() => handleMoreButton(p?._id)}
+            onPress={() => handleMoreButton(p?._id)}
           >
             <Text style={styles?.btnText}>Details</Text>
           </TouchableOpacity>
@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
     borderColor: "lightgray",
-    marginVertical: 5,
+    marginVertical: 10,
     marginHorizontal: 8,
     width:155,
-    padding: 10,
+    paddingBottom: 10,
+    paddingHorizontal: 10,
     backgroundColor: "#ffffff",
     justifyContent: "center",
     // margin:30,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   cardImage: {
     height: 120,
     width: "100%",
-    marginBottom: 10,
+    // marginBottom: 10,
     objectFit:"contain"
   },
   cardTitle: {

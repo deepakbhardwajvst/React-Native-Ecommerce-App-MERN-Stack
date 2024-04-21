@@ -6,7 +6,8 @@ import { ProductsData } from "../../data/ProductsData.js";
 const Products = () => {
   return (
     <>
-    <View  style={styles.card}>
+    <View horizontal={true}  style={styles.card}>
+      {/* <View style={styles.text}><Text>Products</Text></View> */}
       {ProductsData.map((p) => (
         <ProductsCard key={p._id} p={p} />
       ))}
@@ -19,13 +20,17 @@ export default Products;
 
 const styles = StyleSheet.create({
   card: {
-   
-    display:"flex",
+    display: "flex",
     // justifyContent:"space-between",
-    flexDirection:"row",
-    gap:10,
-    flexWrap:"wrap",
-    marginTop:20,
+    flexDirection: "row",
+    // gap: 5,
+    // flexWrap: "wrap",
+    // flexGrow:0,
+    // flexShrink:0,
+    // marginTop:20,
+  },
+  text:{
+    display:"flex"
 
   },
 });

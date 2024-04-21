@@ -9,6 +9,7 @@ const Home = () => {
   return (
     <Layout>
       <Categories />
+   
       <Banner  /> 
       {/* <Banner  />  */}
     
@@ -16,6 +17,7 @@ const Home = () => {
         <Text>Products</Text>
       </View > */}
    
+      {/* <Products  />  */}
       <Products  /> 
     </Layout>
   );
