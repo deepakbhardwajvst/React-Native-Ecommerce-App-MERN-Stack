@@ -9,7 +9,7 @@ const ProductsCard = ({ p }) => {
   const handleMoreButton = (id) => {
     navigation.navigate("productDetails", { _id: id });
     console.log(id);
-  };
+  }; 
 
   //ADD TO CART
   const handleAddToCart = () => {

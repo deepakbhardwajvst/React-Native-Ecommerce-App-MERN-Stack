@@ -7,10 +7,12 @@ import About from "./screens/About/About";
 import ProductDetails from "./screens/ProductDetails/ProductDetails";
 
 
+
 const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
+
       <Stack.Navigator initialRouteName="home">
         <Stack.Screen name="home" component={Home} options={{headerShown:false,}}/>
         <Stack.Screen name="about" component={About} options={{headerShown:false,}}/>
@@ -19,7 +21,7 @@ export default function App() {
     </NavigationContainer>
   );
 } 
-//  7th
+//  10th
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
