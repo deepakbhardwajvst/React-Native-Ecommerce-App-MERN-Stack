@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "#ffffff",
     justifyContent: "center",
-    // margin:30,
+    // margin:30, 
   },
   cardImage: {
     height: 120,

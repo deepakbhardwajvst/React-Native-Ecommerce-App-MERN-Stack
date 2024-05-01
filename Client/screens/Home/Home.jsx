@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import Categories from "../../components/Categories/Categories";
-import Banner from "./../../components/Banner/Banner";
+import Banner from "../../components/Banner/Banner"
 import Products from "../../components/Products/Products";
 import Header from "./../../components/Layout/Header/Header";
 
