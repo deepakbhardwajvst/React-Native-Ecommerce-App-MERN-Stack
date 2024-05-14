@@ -21,7 +21,7 @@ const Cart = ({ navigation }) => {
           : "OOPS Your Cart Is EMPTY !"}
       </Text>
       {cartItems?.length > 0 && (
-        <>
+        <View>
           <ScrollView>
             {cartItems?.map((item) => (
               <Cartitem item={item} key={item?._id} />
@@ -41,7 +41,7 @@ const Cart = ({ navigation }) => {
               <Text style={styles.btnCheckoutText}>CHECKOUT</Text>
             </TouchableOpacity>
           </View>
-        </>
+        </View>
       )}
     </Layout>
   );

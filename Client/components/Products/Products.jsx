@@ -5,13 +5,13 @@ import { ProductsData } from "../../data/ProductsData.js";
 
 const Products = () => {
   return (
-    <>
+    <View>
     <View horizontal={true}  style={styles.card}>
       {/* <View style={styles.text}><Text>Products</Text></View> */}
       {ProductsData.map((p) => (
         <ProductsCard key={p._id} p={p} />
       ))}
-    </View></>
+    </View></View>
   );
 };
 
