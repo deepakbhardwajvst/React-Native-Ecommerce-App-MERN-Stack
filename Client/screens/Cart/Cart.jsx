@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { CartData } from "../../data/CartData";
 import PriceTable from "../../components/cart/PriceTable";
+import Cartitem from "../../components/cart/Cartitem";
 
 const Cart = ({ navigation }) => {
   const [cartItems, setCartItems] = useState(CartData);
@@ -21,7 +22,11 @@ const Cart = ({ navigation }) => {
       </Text>
       {cartItems?.length > 0 && (
         <>
-         
+          <ScrollView>
+            {cartItems?.map((item) => (
+              <Cartitem item={item} key={item?._id} />
+            ))}
+          </ScrollView>
           <View>
             <PriceTable title={"Price"} price={999} />
             <PriceTable title={"Tax"} price={1} />
