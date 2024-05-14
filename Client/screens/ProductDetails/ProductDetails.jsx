@@ -14,7 +14,7 @@ const ProductDetails = ({ route }) => {
   const { params } = route;
   const [pDetails, setPDetails] = useState(null);
   const [qty, setQty] = useState(1);
-
+// console.log(pDetails)
   useEffect(() => {
     if (params?._id) {
       const product = ProductsData.find((p) => p._id === params._id);
@@ -43,50 +43,49 @@ const ProductDetails = ({ route }) => {
       setQty((prevQty) => prevQty - 1);
     }
   };
-// console.log("Image URL:", pDetails?.imageUrl);
+  // console.log("Image URL:", pDetails?.imageUrl);
 
   return (
     <Layout>
       {pDetails && (
-        <>
-          
-
-
-            <Image source={{ uri: pDetails.imageUrl }} style={styles.image} />
-
-          <View style={styles.container}>
-            <Text style={styles.title}>{pDetails.name}</Text>
-            <Text style={styles.price}>Price: {pDetails.price} $</Text>
-            <Text style={styles.description}>
-              Description: {pDetails.description}
+        <View>
+          <Image style={styles?.image}  source={{ uri: pDetails?.imageUrl }} />
+          <View style={styles?.container}>
+            <Text style={styles?.title}>{pDetails?.name}</Text>
+            <Text style={styles?.price}>Price: {pDetails?.price} $</Text>
+            <Text style={styles?.description}>
+              Description: {pDetails?.description}
             </Text>
-            <Text style={styles.quantity}>Quantity: {pDetails.quantity}</Text>
-            <View style={styles.qtyContainer}>
+            <Text style={styles?.quantity}>Quantity: {pDetails?.quantity}</Text>
+            <View style={styles?.qtyContainer}>
               <TouchableOpacity
-                style={styles.qtyButton}
+                style={styles?.qtyButton}
                 onPress={handleRemoveQty}
               >
-                <Text style={styles.qtyButtonText}>-</Text>
+                <Text style={styles?.qtyButtonText}>-</Text>
               </TouchableOpacity>
-              <Text style={styles.qtyText}>{qty}</Text>
-              <TouchableOpacity style={styles.qtyButton} onPress={handleAddQty}>
-                <Text style={styles.qtyButtonText}>+</Text>
+              <Text style={styles?.qtyText}>{qty}</Text>
+              <TouchableOpacity
+                style={styles?.qtyButton}
+                onPress={handleAddQty}
+              >
+                <Text style={styles?.qtyButtonText}>+</Text>
               </TouchableOpacity>
             </View>
             <TouchableOpacity
               style={[
-                styles.button,
-                { backgroundColor: pDetails.quantity > 0 ? "#000" : "gray" },
+                styles?.button,
+                { backgroundColor: pDetails?.quantity > 0 ? "#000" : "gray" },
               ]}
               onPress={() => alert(`${qty} items added to cart`)}
-              disabled={pDetails.quantity <= 0}
+              disabled={pDetails?.quantity <= 0}
             >
-              <Text style={styles.buttonText}>
-                {pDetails.quantity > 0 ? "ADD TO CART" : "OUT OF STOCK"}
+              <Text style={styles?.buttonText}>
+                {pDetails?.quantity > 0 ? "ADD TO CART" : "OUT OF STOCK"}
               </Text>
             </TouchableOpacity>
           </View>
-        </>
+        </View>
       )}
     </Layout>
   );
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 300,
-    objectFit:"cover"
+    objectFit: "cover",
   },
   container: {
     padding: 10,
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginBottom: 10,
-    
+    width:"100%"
   },
   quantity: {
     fontSize: 16,
@@ -143,13 +142,13 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
-    width:200, 
+    width: 200,
   },
   buttonText: {
     fontSize: 18,
     color: "#fff",
     fontWeight: "bold",
-    textAlign:"center"
+    textAlign: "center",
   },
 });
 
