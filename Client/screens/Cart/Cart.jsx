@@ -2,8 +2,8 @@ import {
   View,
   Text,
   StyleSheet,
-//   ScrollView,
-//   TouchableOpacity,
+  //   ScrollView,
+  //   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
@@ -13,10 +13,13 @@ const Cart = ({ navigation }) => {
   const [cartItems, setCartItems] = useState(CartData);
   return (
     <Layout>
-     
-     <View>
-        <Text>cart</Text>
-     </View>
+      <View>
+        <Text style={styles.heading}>
+          {cartItems?.length > 0
+            ? `You Have ${cartItems?.length} Item Left In Your Cart`
+            : "OOPS Your Cart Is EMPTY !"}
+        </Text>
+      </View>
     </Layout>
   );
 };
