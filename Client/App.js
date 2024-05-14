@@ -36,7 +36,6 @@ export default function App() {
         <Stack.Screen
           name="checkout"
           component={Checkout}
-          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
