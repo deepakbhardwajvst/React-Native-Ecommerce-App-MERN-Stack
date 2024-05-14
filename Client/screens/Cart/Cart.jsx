@@ -13,13 +13,13 @@ const Cart = ({ navigation }) => {
   const [cartItems, setCartItems] = useState(CartData);
   return (
     <Layout>
-      <View>
+    
         <Text style={styles.heading}>
           {cartItems?.length > 0
             ? `You Have ${cartItems?.length} Item Left In Your Cart`
             : "OOPS Your Cart Is EMPTY !"}
         </Text>
-      </View>
+     
     </Layout>
   );
 };
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "green",
     marginTop: 10,
+    
   },
   grandTotal: {
     borderWidth: 1,
