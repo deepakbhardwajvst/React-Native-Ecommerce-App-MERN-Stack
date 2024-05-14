@@ -2,24 +2,42 @@ import {
   View,
   Text,
   StyleSheet,
-  //   ScrollView,
-  //   TouchableOpacity,
+    ScrollView,
+    TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { CartData } from "../../data/CartData";
+import PriceTable from "../../components/cart/PriceTable";
 
 const Cart = ({ navigation }) => {
   const [cartItems, setCartItems] = useState(CartData);
   return (
     <Layout>
-    
-        <Text style={styles.heading}>
-          {cartItems?.length > 0
-            ? `You Have ${cartItems?.length} Item Left In Your Cart`
-            : "OOPS Your Cart Is EMPTY !"}
-        </Text>
-     
+      <Text style={styles.heading}>
+        {cartItems?.length > 0
+          ? `You Have ${cartItems?.length} Item Left In Your Cart`
+          : "OOPS Your Cart Is EMPTY !"}
+      </Text>
+      {cartItems?.length > 0 && (
+        <>
+         
+          <View>
+            <PriceTable title={"Price"} price={999} />
+            <PriceTable title={"Tax"} price={1} />
+            <PriceTable title={"Shipping"} price={1} />
+            <View style={styles.grandTotal}>
+              <PriceTable title={"Grand Total"} price={1001} />
+            </View>
+            <TouchableOpacity
+              style={styles.btnCheckout}
+              onPress={() => navigation.navigate("checkout")}
+            >
+              <Text style={styles.btnCheckoutText}>CHECKOUT</Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const PriceTable = () => {
+const PriceTable = ({title,price}) => {
   return (
     <View>
       <Text>PriceTable</Text>
