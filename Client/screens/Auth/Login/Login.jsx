@@ -9,7 +9,8 @@ import React, { useState } from "react";
 import InputBox from './../../../components/Form/InputBox/InputBox';
 
 const Login = ({ navigation }) => {
-  const loginImage = "https://fishcopfed.coop/images/login.png";
+  const loginImage =
+    "https://png.pngtree.com/png-vector/20191003/ourmid/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg";
   const [email, setEamil] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +23,8 @@ const Login = ({ navigation }) => {
     if (!email || !password) {
       return alert("Please add email or password");
     }
+    alert("Login done")
+    navigation.navigate("home")
   };
 
   return (
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 200,
-    width: 200,
+    width: "100%",
     resizeMode: "contain",
   },
   btnContainer: {

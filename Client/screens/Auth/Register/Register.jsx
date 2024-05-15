@@ -29,8 +29,8 @@ const Register = ({ navigation }) => {
       answer,
       country: "India",
     };
-
-    // navigation.navigate("/login");
+alert("register done")
+    navigation.navigate("login");
   };
 
   return (

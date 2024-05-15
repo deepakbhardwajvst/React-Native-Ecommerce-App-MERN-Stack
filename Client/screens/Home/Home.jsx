@@ -17,8 +17,8 @@ const Home = () => {
       {/* <Categories /> */}
       <Banner />
       {/* <Banner  />  */}
-      <Products />
       {/* <Products /> */}
+      <Products />
     </Layout>
   );
 };
