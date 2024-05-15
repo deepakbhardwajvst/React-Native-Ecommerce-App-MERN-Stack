@@ -4,9 +4,9 @@ import React from "react";
 const InputBox = ({
   value="",
   setValue="",
-  autoComplete="",
+  autoComplete,
   placeholder="",
-  secureTextEntry="",
+  secureTextEntry,
 }) => {
   return (
     <View style={styles.container}>
