@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text,StyleSheet } from "react-native";
 import React from "react";
+import Layout from './../../components/Layout/Layout';
 
 const Payments = () => {
   return (
-    <View>
+    <Layout>
       <Text>Payments</Text>
-    </View>
+    </Layout>
   );
 };
 

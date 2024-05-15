@@ -8,7 +8,7 @@ const Layout = ({children}) => {
   return (
     <>
       <StatusBar />
-     <Header />
+     {/* <Header /> */}
      
       <Text>{children}</Text>
       <View style={styles.footer}>

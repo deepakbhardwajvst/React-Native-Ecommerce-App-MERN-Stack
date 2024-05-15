@@ -7,6 +7,7 @@ import About from "./screens/About/About";
 import ProductDetails from "./screens/ProductDetails/ProductDetails";
 import Cart from "./screens/Cart/Cart";
 import Checkout from "./screens/Checkout/Checkout";
+import Payments from "./screens/Payments/Payments";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -21,21 +22,25 @@ export default function App() {
         <Stack.Screen
           name="about"
           component={About}
-          options={{ headerShown: false }}
+          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="productDetails"
           component={ProductDetails}
-          options={{ headerShown: false }}
+          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="cart"
           component={Cart}
-          options={{ headerShown: false }}
+          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="checkout"
           component={Checkout}
+        />
+        <Stack.Screen
+          name="payment"
+          component={Payments}
         />
       </Stack.Navigator>
     </NavigationContainer>
