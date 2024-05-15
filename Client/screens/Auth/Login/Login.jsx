@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import InputBox from './../../../components/Form/InputBox/InputBox';
 
 const Login = ({ navigation }) => {
-  const loginImage ="https://www.google.com/imgres?imgurl=https%3A%2F%2Fakm-img-a-in.tosshub.com%2Faajtak%2Fimages%2Fstory%2F202310%2Fadd_a_subheading_43-sixteen_nine.png&tbnid=hbnUAMVfq9A-NM&vet=12ahUKEwiOrZSzto6GAxWv5DgGHYk7DmYQMygCegQIARAr..i&imgrefurl=https%3A%2F%2Fwww.aajtak.in%2Fworld%2Fstory%2Fbaps-swaminarayan-akshardham-largest-hindu-temple-inaugurated-america-new-jersey-robbinsville-ntc-1795920-2023-10-10&docid=TmR9CD_wylXHyM&w=1200&h=675&q=angrejo%20ke%20mandir%20me%20sbse%20jayada%20bhakt%20kis%20desh%20se%20hai&ved=2ahUKEwiOrZSzto6GAxWv5DgGHYk7DmYQMygCegQIARAr";
+  const loginImage = "https://fishcopfed.coop/images/login.png";
   const [email, setEamil] = useState("");
   const [password, setPassword] = useState("");
 
