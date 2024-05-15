@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import { userData } from "../../data/userData";
+import { userData } from "../../data/userData";  
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Layout from './../../components/Layout/Layout';
 
