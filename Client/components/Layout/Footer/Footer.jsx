@@ -8,7 +8,12 @@ const Footer = () => {
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.menuContainer} onPress={()=>{navigation.navigate("home")}}>
+      <TouchableOpacity
+        style={styles.menuContainer}
+        onPress={() => {
+          navigation.navigate("home");
+        }}
+      >
         <AntDesign
           style={[styles.icon, route.name === "home" && styles.active]}
           name="home"
@@ -22,7 +27,12 @@ const Footer = () => {
           style={[styles.icon, route.name === "notification" && styles.active]}
           name="bells"
         />
-        <Text style={[styles.iconText, route.name === "notification" && styles.active]}>
+        <Text
+          style={[
+            styles.iconText,
+            route.name === "notification" && styles.active,
+          ]}
+        >
           Notification
         </Text>
       </TouchableOpacity>
@@ -31,11 +41,18 @@ const Footer = () => {
           style={[styles.icon, route.name === "account" && styles.active]}
           name="user"
         />
-        <Text style={[styles.iconText, route.name === "account" && styles.active]}>
+        <Text
+          style={[styles.iconText, route.name === "account" && styles.active]}
+        >
           Account
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.menuContainer} onPress={()=>{navigation.navigate("cart")}}>
+      <TouchableOpacity
+        style={styles.menuContainer}
+        onPress={() => {
+          navigation.navigate("cart");
+        }}
+      >
         <AntDesign
           style={[styles.icon, route.name === "Cart" && styles.active]}
           name="shoppingcart"
@@ -44,12 +61,19 @@ const Footer = () => {
           Cart
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.menuContainer}>
+      <TouchableOpacity
+        style={styles.menuContainer}
+        onPress={() => {
+          navigation.navigate("login");
+        }}
+      >
         <AntDesign
           style={[styles.icon, route.name === "logout" && styles.active]}
           name="logout"
         />
-        <Text style={[styles.iconText, route.name === "logout" && styles.active]}>
+        <Text
+          style={[styles.iconText, route.name === "logout" && styles.active]}
+        >
           Logout
         </Text>
       </TouchableOpacity>
