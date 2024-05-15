@@ -61,6 +61,8 @@ const Account = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
+    // justifyContent:"center",
+    // alignItems:"center"
   },
   image: {
     height: 100,
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   btnContainer: {
+    // width:"100%",
     padding: 10,
     backgroundColor: "#ffffff",
     margin: 10,
