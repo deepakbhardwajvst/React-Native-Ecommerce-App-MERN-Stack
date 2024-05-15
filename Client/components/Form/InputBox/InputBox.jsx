@@ -2,11 +2,11 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import React from "react";
 
 const InputBox = ({
-  value,
-  setValue,
-  autoComplete,
-  placeholder,
-  secureTextEntry,
+  value="",
+  setValue="",
+  autoComplete="",
+  placeholder="",
+  secureTextEntry="",
 }) => {
   return (
     <View style={styles.container}>
