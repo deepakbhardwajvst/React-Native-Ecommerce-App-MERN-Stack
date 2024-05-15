@@ -11,7 +11,7 @@ import Payments from "./screens/Payments/Payments";
 import Login from './screens/Auth/Login/Login';
 import Register from "./screens/Auth/Register/Register";
 import Account from "./screens/Account/Account";
-import Notification from "./screens/Account/Notification/Notification";
+import Notifications from './screens/Account/Notification/Notifications';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -59,8 +59,8 @@ export default function App() {
           component={Account}
         />
         <Stack.Screen
-          name="notification"
-          component={Notification}
+          name="notifications"
+          component={Notifications}
         />
       </Stack.Navigator>
     </NavigationContainer>
