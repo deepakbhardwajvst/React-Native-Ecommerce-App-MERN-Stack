@@ -17,7 +17,7 @@ const Register = ({ navigation }) => {
   const handleRegister = () => {
     // validation
     if (!email || !password || !name || !address || !city || !phone) {
-      return alert("Please provide all fields client side");
+      return alert("please provide the necessary details");
     }
     const formData = {
       email,
