@@ -1,4 +1,4 @@
-export const orderData = [
+export default orderData = [
   {
     _id: 1,
     totalAmount: 1001,
