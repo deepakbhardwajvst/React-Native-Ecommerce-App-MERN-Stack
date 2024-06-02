@@ -14,6 +14,7 @@ import Account from "./screens/Account/Account";
 import Notifications from './screens/Account/Notification/Notifications';
 import Profile from "./screens/Account/Profile/Profile";
 import MyOrders from "./screens/Account/MyOrders/MyOrders";
+import Dashboard from "./screens/Admin/Dashboard/Dashboard";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="register" component={Register} />
         <Stack.Screen name="account" component={Account} />
+        <Stack.Screen name="adminPanel" component={Dashboard} />
         <Stack.Screen name="notifications" component={Notifications} />
         <Stack.Screen name="profile" component={Profile} />
       </Stack.Navigator>

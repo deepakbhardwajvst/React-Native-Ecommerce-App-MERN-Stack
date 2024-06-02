@@ -10,7 +10,7 @@ const Layout = ({children}) => {
       <StatusBar />
      {/* <Header /> */}
      
-      <Text>{children}</Text>
+      <View>{children}</View>
       <View style={styles.footer}>
         <Footer />
       </View>
@@ -18,7 +18,7 @@ const Layout = ({children}) => {
   );
 } 
 
-export default Layout
+export default Layout;
 
 const styles = StyleSheet.create({
   footer: {

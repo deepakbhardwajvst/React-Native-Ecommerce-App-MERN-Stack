@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../../components/Layout/Layout";
 import orderData from "../../../data/OrderData";
-import OrderItem from "../../components/Form/OrderItem";
+import OrderItem from "../../../components/Form/OrderItem/OrderItem";
 
 const MyOrders = () => {
   return (
