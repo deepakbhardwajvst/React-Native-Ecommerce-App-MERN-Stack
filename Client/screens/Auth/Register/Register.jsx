@@ -38,13 +38,13 @@ alert("register done")
       <Image source={{ uri: loginImage }} style={styles.image} />
 
       <InputBox
-        placeholder={"Enter You Name"}
+        placeholder={"Full Name (Required)*"}
         value={name}
         setValue={setName}
         autoComplete={"name"}
       />
       <InputBox
-        placeholder={"Enter You Email"}
+        placeholder={"Email ID"}
         value={email}
         setValue={setEamil}
         autoComplete={"email"}
@@ -52,29 +52,29 @@ alert("register done")
       <InputBox
         value={password}
         setValue={setPassword}
-        placeholder={"Enter You Password"}
+        placeholder={"Password have At least 6 characters (Required)*"}
         secureTextEntry={true}
       />
       <InputBox
-        placeholder={"Enter You address"}
+        placeholder={"House No., Area, Colony (Required)*"}
         value={address}
         setValue={setAddress}
         autoComplete={"address-line1"}
       />
       <InputBox
-        placeholder={"Enter You city"}
+        placeholder={"Your city (Required)*"}
         value={city}
         setValue={setCity}
         autoComplete={"country"}
       />
       <InputBox
-        placeholder={"Enter You contact no"}
+        placeholder={"Phone Number (Required)*"}
         value={phone}
         setValue={setPhone}
         autoComplete={"name"}
       />
       <InputBox
-        placeholder={"Enter You favrite dish"}
+        placeholder={"Your favrite dish (Optional)"}
         value={answer}
         setValue={setAnswer}
         autoComplete={"name"}
@@ -84,12 +84,12 @@ alert("register done")
           <Text style={styles.loginBtnText}>Register</Text>
         </TouchableOpacity>
         <Text>
-          Alredy a user please ?{"  "}
+          Existing User?{" "}
           <Text
             style={styles.link}
             onPress={() => navigation.navigate("login")}
           >
-            login !
+            Log in
           </Text>
         </Text>
       </View>

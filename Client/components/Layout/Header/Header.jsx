@@ -34,7 +34,8 @@ export default Header
 
 const styles = StyleSheet.create({
   box: {
-    marginTop: 20,
+    // marginTop: 20,
+    marginTop: 30,
     height: 60,
     // flex: 1,
     backgroundColor: "#23527c",

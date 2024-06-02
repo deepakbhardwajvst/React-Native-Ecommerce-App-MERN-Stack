@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
       <Image source={{ uri: loginImage }} style={styles.image} />
       {loading && <Text>loading ...</Text>}
       <InputBox
-        placeholder={"Enter You Email"}
+        placeholder={"Enter Email/Mobile number"}
         value={email}
         setValue={setEamil}
         autoComplete={"email"}
@@ -40,7 +40,7 @@ const Login = ({ navigation }) => {
       <InputBox
         value={password}
         setValue={setPassword}
-        placeholder={"Enter You Password"}
+        placeholder={"Enter Password"}
         secureTextEntry={true}
       />
       <View style={styles.btnContainer}>
@@ -48,12 +48,12 @@ const Login = ({ navigation }) => {
           <Text style={styles.loginBtnText}>Login</Text>
         </TouchableOpacity>
         <Text>
-          Not a user yet ? Please{"  "}
+          New to ecom? {" "}
           <Text
             style={styles.link}
             onPress={() => navigation.navigate("register")}
           >
-            Register !
+            Create an account
           </Text>
         </Text>
       </View>
