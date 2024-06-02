@@ -13,6 +13,7 @@ import Register from "./screens/Auth/Register/Register";
 import Account from "./screens/Account/Account";
 import Notifications from './screens/Account/Notification/Notifications';
 import Profile from "./screens/Account/Profile/Profile";
+import MyOrders from "./screens/Account/MyOrders/MyOrders";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -35,38 +36,22 @@ export default function App() {
           // options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="myorders"
+          component={MyOrders}
+          // options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="cart"
           component={Cart}
           // options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="checkout"
-          component={Checkout}
-        />
-        <Stack.Screen
-          name="payment"
-          component={Payments}
-        />
-        <Stack.Screen
-          name="login"
-          component={Login}
-        />
-        <Stack.Screen
-          name="register"
-          component={Register}
-        />
-        <Stack.Screen
-          name="account"
-          component={Account}
-        />
-        <Stack.Screen
-          name="notifications"
-          component={Notifications}
-        />
-        <Stack.Screen
-          name="profile"
-          component={Profile}
-        />
+        <Stack.Screen name="checkout" component={Checkout} />
+        <Stack.Screen name="payment" component={Payments} />
+        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="register" component={Register} />
+        <Stack.Screen name="account" component={Account} />
+        <Stack.Screen name="notifications" component={Notifications} />
+        <Stack.Screen name="profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

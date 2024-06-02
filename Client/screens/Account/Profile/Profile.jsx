@@ -43,40 +43,41 @@ const Profile = ({ navigation }) => {
           <InputBox
             value={name}
             setValue={setName}
-            placeholder={"enter you name"}
+            placeholder={"Full Name"}
             autoComplete={"name"}
+          />
+          <InputBox
+            value={contact}
+            setValue={setContact}
+            placeholder={"Phone number"}
+            autoComplete={"tel"}
           />
           <InputBox
             value={email}
             setValue={setEamil}
-            placeholder={"enter you email"}
+            placeholder={"Email ID"}
             autoComplete={"email"}
           />
           <InputBox
             value={password}
             setValue={setPassword}
-            placeholder={"enter you password"}
+            placeholder={"password"}
             autoComplete={"password"}
             secureTextEntry={true}
           />
           <InputBox
             value={address}
             setValue={setAddress}
-            placeholder={"enter you address"}
+            placeholder={"House No., area, Colony"}
             autoComplete={"address-line1"}
           />
           <InputBox
             value={city}
             setValue={setCity}
-            placeholder={"enter you city"}
+            placeholder={"City Name"}
             autoComplete={"country"}
           />
-          <InputBox
-            value={contact}
-            setValue={setContact}
-            placeholder={"enter you contact no"}
-            autoComplete={"tel"}
-          />
+
           <TouchableOpacity style={styles.btnUpdate} onPress={handleUpdate}>
             <Text style={styles.btnUpdateText}>UPDATE PROFILE</Text>
           </TouchableOpacity>
@@ -88,6 +89,7 @@ const Profile = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
+     
   },
   imageContainer: {
     justifyContent: "center",
