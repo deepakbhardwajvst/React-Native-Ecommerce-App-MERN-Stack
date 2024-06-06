@@ -4,6 +4,7 @@ import morgan from "morgan"; // localhost per huye refresh yah action ke liya , 
 import cors from "cors"; // so we dont get cross origin error to connect client an server
 import dotenv from "dotenv"; // managing sensitive data such as API keys, database credentials 
 import testRoutes from "./routes/testRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 import connectDB from "./config/db.js";
 // dot env config
 dotenv.config()
@@ -21,6 +22,7 @@ app.use(cors())
 
 // route
 app.use("/api/v1",testRoutes)
+app.use("/api/v1/user",userRoutes)
 app.get('/', (req,res)=>{
     return res.status(200).send("<h1>app.get ne kiya run Forward slash per </h1>")
 }) 
