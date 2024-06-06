@@ -1,6 +1,6 @@
 import express from "express";
 import colors from "colors"; // console per color
-import morgan from "morgan"; // localhost per huye refresh yah action ke liya
+import morgan from "morgan"; // localhost per huye refresh yah action ke liya , konsa url hit huya hai yeh pata chlta hai
 import cors from "cors"; // so we dont get cross origin error to connect client an server
 import dotenv from "dotenv"; // managing sensitive data such as API keys, database credentials 
 
