@@ -1,6 +1,6 @@
 import express from "express";
 import {
-    getUserProfileController,
+  getUserProfileController,
   loginController,
   registerController,
 } from "../controllers/userController.js";
@@ -11,5 +11,5 @@ router.post("/register", registerController);
 // login api
 router.post("/login", loginController);
 // profile
-router.post("/profile",getUserProfileController)
+router.get("/profile",getUserProfileController)
 export default router;

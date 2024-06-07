@@ -96,5 +96,19 @@ export const loginController = async (req, res) => {
     });
   }
 };
-
-export const getUserProfileController = ()=>{}
+//  Get User Profile
+export const getUserProfileController = async (req,res)=>{
+  try {
+    res.status(200).send({
+      success: true,
+      message: "User Profile Fetched Successfully",
+    });
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({
+      success:false,
+      message:"Error in Profile API",
+      error
+    })
+  }
+}
