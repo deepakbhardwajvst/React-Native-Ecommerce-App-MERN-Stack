@@ -1,45 +1,53 @@
-import userModel from "../models/userModel.js"
-export const registerController = async (req,res)=>{
-    try {
-        const {name,email ,password,address,city, country,phone} =  req.body
-        if (!name || !email || !password || !address || !city || !country || !phone) {
-            res.status(500).send({
-              success: false,
-              message: "Please provide all fields",
-            });
-        }
-        // checking exisiting user
-        const exisitingUser = await userModel.findOne({email})
-        // validation
-        if (exisitingUser) {
-          return res.status(500).send({
-            success:false,
-            message:"email already registered"
-          })
-        } 
-        const user = await userModel.create({
-          name,
-          email,
-          password,
-          address,
-          city,
-          country,
-          phone
-        }); 
-        res.status(201).send({
-          success: true,
-          message: "All done, Please login",
-        });
-    } catch (error) {
-        console.log(error)
-        res.status(500).send({
-            success:false,
-            message:"Error in Register API",
-            error
-        })
+import userModel from "../models/userModel.js";
+export const registerController = async (req, res) => {
+  try {
+    const { name, email, password, address, city, country, phone } = req.body;
+    if (
+      !name ||
+      !email ||
+      !password ||
+      !address ||
+      !city ||
+      !country ||
+      !phone
+    ) {
+      res.status(500).send({
+        success: false,
+        message: "Please provide all fields",
+      });
     }
-}
-export const loginController = async (req,res)=>{
+    // checking exisiting user
+    const exisitingUser = await userModel.findOne({ email });
+    // validation
+    if (exisitingUser) {
+      return res.status(500).send({
+        success: false,
+        message: "email already registered",
+      });
+    }
+    const user = await userModel.create({
+      name,
+      email,
+      password,
+      address,
+      city,
+      country,
+      phone,
+    });
+    res.status(201).send({
+      success: true,
+      message: "All done, Please login",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in Register API",
+      error,
+    });
+  }
+};
+export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     // validation
@@ -67,17 +75,26 @@ export const loginController = async (req,res)=>{
         message: "Try again or click 'Forget password' to reset it.",
       });
     }
-    res.status(200).send({
+    const token = user.generateToken()
+    res.status(200).cookie("token", token ,
+       {
+        expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+        secure: process.env.NODE_ENV === "development" ? true : false,
+        httpOnly: process.env.NODE_ENV === "development" ? true : false,
+        sameSite: process.env.NODE_ENV === "development" ? true : false,
+    }).send({
       success: true,
       message: "Enjoy Happy Friday sale",
-      user,
+      token,user
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in Login API",
       error,
     });
   }
-}
+};
+
+export const getUserProfileController = ()=>{}

@@ -1,11 +1,15 @@
-import express from "express"
-import { loginController, registerController } from "../controllers/userController.js"
+import express from "express";
+import {
+    getUserProfileController,
+  loginController,
+  registerController,
+} from "../controllers/userController.js";
 // router object
-const router = express.Router()
+const router = express.Router();
 // register api
-router.post("/register",registerController)
+router.post("/register", registerController);
 // login api
-router.post("/login",loginController)
-
-
-export default router
+router.post("/login", loginController);
+// profile
+router.post("/profile",getUserProfileController)
+export default router;
