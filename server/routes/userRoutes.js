@@ -5,6 +5,7 @@ import {
   logoutController,
   updateProfileController,
   registerController,
+  updatePasswordController,
 } from "../controllers/userController.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
 // router object
@@ -19,4 +20,6 @@ router.get("/profile",isAuth,getUserProfileController)
 router.get("/logout",logoutController)
 // Profile Update
 router.put("/profile-update",isAuth,updateProfileController)
+// Update Password
+router.put("/update-password",isAuth,updatePasswordController)
 export default router;
