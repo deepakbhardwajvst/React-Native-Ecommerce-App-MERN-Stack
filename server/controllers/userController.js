@@ -99,9 +99,12 @@ export const loginController = async (req, res) => {
 //  Get User Profile
 export const getUserProfileController = async (req,res)=>{
   try {
+    const user = await userModel.findById(req.user._id);
+    user.password = undefined
     res.status(200).send({
       success: true,
       message: "User Profile Fetched Successfully",
+      user,
     });
   } catch (error) {
     console.log(error)
@@ -112,3 +115,54 @@ export const getUserProfileController = async (req,res)=>{
     })
   }
 }
+
+// logout
+export const logoutController = async (req,res)=>{
+  try {
+    res
+      .status(200)
+      .cookie("token", "", {
+        expires: new Date(Date.now()),
+        secure: process.env.NODE_ENV === "development" ? true : false,
+        httpOnly: process.env.NODE_ENV === "development" ? true : false,
+        sameSite: process.env.NODE_ENV === "development" ? true : false,
+      })
+      .send({
+        success: true,
+        message: "Catch you later! Thanks for stopping by.",
+      });
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({
+      success: false,
+      message: "Error in Logout API",
+      error
+    });
+  }
+}
+// User Profile Update 
+export const updateProfileController = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.user._id);
+    const { name, email, address, city, country, phone } = req.body;
+    if(name) user.name = name;
+    if(email) user.email = email;
+    if(address) user.address = address;
+    if(city) user.city = city;
+    if(country) user.country = country;
+    if(phone) user.phone = phone;
+    await user.save();
+    res.status(200).send({
+      success: true,
+      message: "And there you have it! Profile updated.",
+    });
+  } catch (error) {
+    console.log(error)
+    req.status(500).send({
+      success:false,
+      message:"Error in Update profile API",
+      error
+    })
+    
+  }
+};

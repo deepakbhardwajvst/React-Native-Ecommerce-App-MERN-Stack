@@ -1,5 +1,5 @@
 import JWT from "jsonwebtoken"
-import userModel from "../models/userModel"
+import userModel from "../models/userModel.js"
 
 
 export const isAuth = async (req,res,next)=>{
@@ -12,6 +12,6 @@ export const isAuth = async (req,res,next)=>{
         })   
     }
     const decodeData = JWT.verify(token, process.env.JWT_SECRET)
-    req.user = userModel.findById(decodeData._id)
+    req.user = await userModel.findById(decodeData._id)
     next()
 }
