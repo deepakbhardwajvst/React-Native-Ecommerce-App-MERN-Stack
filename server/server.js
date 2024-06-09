@@ -5,6 +5,7 @@ import cors from "cors"; // so we dont get cross origin error to connect client 
 import dotenv from "dotenv"; // managing sensitive data such as API keys, database credentials
 import testRoutes from "./routes/testRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
@@ -31,6 +32,7 @@ app.use(cookieParser());
 // route
 app.use("/api/v1", testRoutes);
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/product", productRoutes);
 app.get("/", (req, res) => {
   return res
     .status(200)
