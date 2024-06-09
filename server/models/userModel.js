@@ -35,14 +35,15 @@ const userSchema = new mongoose.Schema(
       required: [true, "Phone is required"],
     },
     profilePic: {
-      type: String,
+      public_id: { type: String },
+      url: { type: String },
     },
   },
   { timestamps: true }
 );
 // hash password
 userSchema.pre("save", async function (next) {
-  if(!this.isModified("password")) return next();
+  if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 10);
 });
 // compare password function for login
@@ -56,7 +57,7 @@ userSchema.methods.generateToken = function () {
       _id: this._id,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "7d" },
+    { expiresIn: "7d" }
   );
 };
 const userModel = mongoose.model("Users", userSchema);

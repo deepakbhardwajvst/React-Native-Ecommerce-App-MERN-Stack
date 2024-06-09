@@ -6,8 +6,10 @@ import {
   updateProfileController,
   registerController,
   updatePasswordController,
+  updateProfilePicController,
 } from "../controllers/userController.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
+import { singleUpload } from "../middlewares/multer.js";
 // router object
 const router = express.Router();
 // register api
@@ -22,4 +24,6 @@ router.get("/logout",logoutController)
 router.put("/profile-update",isAuth,updateProfileController)
 // Update Password
 router.put("/update-password",isAuth,updatePasswordController)
+// Update Password
+router.post("/update-picture",isAuth, singleUpload, updateProfilePicController);
 export default router;
