@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
     },
-    image: [
+    images: [
       {
         public_id: String,
         url: String,
