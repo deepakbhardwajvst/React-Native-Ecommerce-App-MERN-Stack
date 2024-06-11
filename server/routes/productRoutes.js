@@ -4,6 +4,7 @@ import {
   getAllProductController,
   getSingleProductController,
   updateProductController,
+  updateProductImageController,
 } from "../controllers/productController.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import { singleUpload } from "../middlewares/multer.js";
@@ -17,4 +18,6 @@ router.get("/:id", getSingleProductController);
 router.post("/create", isAuth, singleUpload, createProductController);
 // update product
 router.put ("/:id",isAuth,updateProductController)
+// update product image
+router.put ("/image/:id",isAuth,singleUpload,updateProductImageController)
 export default router;

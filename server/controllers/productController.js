@@ -137,3 +137,52 @@ export const updateProductController = async (req, res) => {
     });
   }
 };
+//  updating product
+export const updateProductImageController = async (req, res) => {
+  try {
+    // find product
+    const product = await productModel.findById(req.params.id);
+    //  validtion
+    if (!product) {
+      return res.status(404).send({
+        success: false,
+        message: "product not found",
+      });
+    }
+    //  checking file
+    if (!req.file) {
+      return res.status(404).send({
+        success: false,
+        message: "product image not found",
+      });
+    }
+
+    const file = getDataUri(req.file);
+    const cdb = await cloudinary.v2.uploader.upload(file.content);
+    const image = {
+      public_id: cdb.public_id,
+      url: cdb.secure_url,
+    };
+// save
+product.images.push(image)
+await product.save()
+    res.status(200).send({
+      success: true,
+      message: "product image Updated Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    // cast error || Object Id
+    if (error.name === "CastError") {
+      res.status(500).send({
+        success: false,
+        message: "Invalid id",
+      });
+    }
+    res.status(500).send({
+      success: false,
+      message: "Error In Get update Products Image API",
+      error,
+    });
+  }
+};
