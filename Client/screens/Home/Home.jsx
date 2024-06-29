@@ -13,11 +13,7 @@ const Home = () => {
         <Header />
       </View>
       <Categories />
-      {/* <Categories /> */}
-      {/* <Categories /> */}
-      {/* <Banner /> */}
-      <Banner  /> 
-      {/* <Products /> */}
+      <Banner />
       <Products />
     </Layout>
   );
