@@ -10,6 +10,7 @@ import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
 import categoryRoutes from "./routes/categoryRoutes.js"; 
+import orderRoutes from "./routes/orderRoutes.js"; 
 // dot env config
 dotenv.config();
 
@@ -35,6 +36,7 @@ app.use("/api/v1", testRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/category", categoryRoutes);
+app.use("/api/v1/order", orderRoutes);
 app.get("/", (req, res) => {
   return res
     .status(200)
