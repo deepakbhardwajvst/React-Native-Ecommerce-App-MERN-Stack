@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createProductController,
+  deleteProductController,
   deleteProductImageController,
   getAllProductController,
   getSingleProductController,
@@ -19,8 +20,10 @@ router.get("/:id", getSingleProductController);
 router.post("/create", isAuth, singleUpload, createProductController);
 // update product
 router.put ("/:id",isAuth,updateProductController)
-// delete product image
-router.put ("/image/:id",isAuth,singleUpload,updateProductImageController)
 // update product image
+router.put ("/image/:id",isAuth,singleUpload,updateProductImageController)
+// delete product image
 router.delete ("/delete-image/:id",isAuth,deleteProductImageController)
+// delete product
+router.delete("/delete/:id", isAuth, deleteProductController);
 export default router;

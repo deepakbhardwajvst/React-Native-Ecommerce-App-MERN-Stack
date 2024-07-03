@@ -163,9 +163,9 @@ export const updateProductImageController = async (req, res) => {
       public_id: cdb.public_id,
       url: cdb.secure_url,
     };
-// save
-product.images.push(image)
-await product.save()
+    // save
+    product.images.push(image);
+    await product.save();
     res.status(200).send({
       success: true,
       message: "product image Updated Successfully",
@@ -190,7 +190,7 @@ await product.save()
 export const deleteProductImageController = async (req, res) => {
   try {
     // find product
-    const product = await productModel.findById(req.params.id)
+    const product = await productModel.findById(req.params.id);
     //  validtion
     if (!product) {
       return res.status(404).send({
@@ -199,7 +199,7 @@ export const deleteProductImageController = async (req, res) => {
       });
     }
     //  image id find
-    const  id = req.query.id
+    const id = req.query.id;
     if (!id) {
       return res.status(404).send({
         success: false,
@@ -207,22 +207,20 @@ export const deleteProductImageController = async (req, res) => {
       });
     }
     let isExist = -1;
-    product.images.forEach((item,index) => {
-      if(item._id.toString() === id.toString()) isExist =index
+    product.images.forEach((item, index) => {
+      if (item._id.toString() === id.toString()) isExist = index;
     });
-    if(isExist < 0){
-        return res.status(404).send({
-          success: false,
-          message: "product not found",
-        });
+    if (isExist < 0) {
+      return res.status(404).send({
+        success: false,
+        message: "product not found",
+      });
     }
-    // deleting image 
-await cloudinary.v2.uploader.destroy(product.images[isExist].public_id)
-product.images.splice(isExist,1)
-await product.save()
-   
-  
-   
+    // deleting image
+    await cloudinary.v2.uploader.destroy(product.images[isExist].public_id);
+    product.images.splice(isExist, 1);
+    await product.save();
+
     res.status(200).send({
       success: true,
       message: "product image deleted Successfully",
@@ -240,6 +238,41 @@ await product.save()
       success: false,
       message: "Error In Get Delete Products Image API",
       error,
+    });
+  }
+};
+//  Delete Product
+export const deleteProductController = async (req, res) => {
+  try {
+    // Find Product
+    const product = await productModel.findById(req.params.id);
+    // validation
+    if (!product) {
+      res.status(404).send({
+        success: false,
+        message: "Product not found",
+      });
+    }
+    // find and delete image from cloudinary
+    for (let index = 0; index < product.images.length; index++) {
+      await cloudinary.v2.uploader.destroy(product.images[index].public_id);
+    }
+    await product.deleteOne();
+    res.status(200).send({
+      success: true,
+      message: "Product Deleted Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    if (error.name === "CastError") {
+      res.status(500).send({
+        success: false,
+        message: "Invalid Id",
+      });
+    }
+    res.status(500).send({
+      success: false,
+      message: "Error in delete product API",
     });
   }
 };

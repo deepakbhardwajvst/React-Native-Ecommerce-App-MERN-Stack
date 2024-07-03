@@ -58,7 +58,7 @@ export default function App() {
     </NavigationContainer>
   );
 }
-//  13th video watch
+
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
