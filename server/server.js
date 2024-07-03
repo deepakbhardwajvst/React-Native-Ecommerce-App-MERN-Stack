@@ -11,9 +11,11 @@ import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
 import categoryRoutes from "./routes/categoryRoutes.js"; 
 import orderRoutes from "./routes/orderRoutes.js"; 
+import Stripe from "stripe";
 // dot env config
 dotenv.config();
-
+//stripe configuration
+export const stripe = new Stripe(process.env.STRIPE_SECRET);
 // database connection
 connectDB();
 // cloudinary config
