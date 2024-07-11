@@ -152,3 +152,47 @@ export const paymetsController = async (req, res) => {
     });
   }
 };
+
+
+
+//  ===============  ADMIN SECTION  ==============
+
+// get All order
+export const getAllOrdersAdminController = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    //valdiation
+    if (!orders) {
+      res.status(500).send({
+        success: false,
+        message: "Orders not found",
+      });
+    }
+    res.status(200).send({
+      success: true,
+      message: "All order found successfully",
+      totalOrders: orders.length,
+      orders
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "error in admin side orders API",
+      error,
+    });
+  }
+};
+// Change Order Status  36.... 13:23
+export const changeOrderStatusController = async (req, res) => {
+  try {
+   
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "error in Change Order Status  API",
+      error,
+    });
+  }
+};
