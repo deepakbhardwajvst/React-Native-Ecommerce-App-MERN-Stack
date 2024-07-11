@@ -7,6 +7,7 @@ import {
   registerController,
   updatePasswordController,
   updateProfilePicController,
+  passwordResetController,
 } from "../controllers/userController.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import { singleUpload } from "../middlewares/multer.js";
@@ -26,4 +27,6 @@ router.put("/profile-update",isAuth,updateProfileController)
 router.put("/update-password",isAuth,updatePasswordController)
 // Update Password
 router.post("/update-picture",isAuth, singleUpload, updateProfilePicController);
+// Update Password
+router.post("/reset-password", passwordResetController);
 export default router;

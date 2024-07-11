@@ -1,4 +1,24 @@
 import mongoose from "mongoose";
+// review model
+const reviewSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "name is require"],
+  },
+  rating: {
+    type: Number,
+    default: 0,
+  },
+  comment: {
+    type: String,
+  },
+  user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+      required: [true, "user require"],
+    },
+  },{timestamps:true}
+);
 const productSchema = new mongoose.Schema(
   {
     name: {
