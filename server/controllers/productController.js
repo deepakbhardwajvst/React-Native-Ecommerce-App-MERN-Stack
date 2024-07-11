@@ -3,11 +3,17 @@ import { getDataUri } from "../utils/features.js";
 import cloudinary from "cloudinary";
 //  getting all product
 export const getAllProductController = async (req, res) => {
+  const { keyword, category } = req.query;
   try {
-    const products = await productModel.find({});
+    const products = await productModel
+      .find({
+        name: { $regex: keyword ? keyword : "", $options: "i" },
+        // category: category ? category : undefined,
+      }).populate("category");
     res.status(200).send({
       success: true,
       message: "all Product Fetched successfully",
+      totalProducts: products.length,
       products,
     });
   } catch (error) {
@@ -33,6 +39,7 @@ export const getSingleProductController = async (req, res) => {
     res.status(200).send({
       success: true,
       message: "One Product Fetched successfully",
+    
       product,
     });
   } catch (error) {
@@ -273,6 +280,56 @@ export const deleteProductController = async (req, res) => {
     res.status(500).send({
       success: false,
       message: "Error in delete product API",
+    });
+  }
+};
+
+// create product review and comment
+
+export const productReviewController = async (req, res) => {
+  try {
+    const { comment, rating } = req.body;
+    // find product
+    const product = await productModel.findById(req.params.id);
+    const alreadyReviewed = product.reviews.find(
+      (r) => r.user.toString() === req.user._id.toString()
+    );
+    if (alreadyReviewed) {
+      res.status(400).send({
+        success: false,
+        message: "product already reviewed",
+      });
+    }
+    // creating review object
+    const review = {
+      name: req.user.name,
+      rating: Number(rating),
+      comment,
+      user: req.user._id,
+    };
+    // passing review to reviews array
+    product.reviews.push(review);
+    // number of reviews
+    product.numReviews = product.reviews.length;
+    product.rating =
+      product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+      product.reviews.length;
+    await product.save();
+    res.status(200).send({
+      success: true,
+      message: "Review Added Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    if (error.name === "CastError") {
+      res.status(500).send({
+        success: false,
+        message: "Invalid Id",
+      });
+    }
+    res.status(500).send({
+      success: false,
+      message: "Error in product review and comment API",
     });
   }
 };
