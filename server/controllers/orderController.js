@@ -8,8 +8,8 @@ export const createOrderController = async (req, res) => {
     const {
       shippingInfo,
       orderItems,
-    //   paymentMethod,
-    //   paymentInfo,
+      //   paymentMethod,
+      //   paymentInfo,
       itemPrice,
       tax,
       shippingCharges,
@@ -19,8 +19,8 @@ export const createOrderController = async (req, res) => {
     if (
       !shippingInfo ||
       !orderItems ||
-    //   !paymentMethod ||
-    //   !paymentInfo ||
+      //   !paymentMethod ||
+      //   !paymentInfo ||
       !itemPrice ||
       !tax ||
       !shippingCharges ||
@@ -36,8 +36,8 @@ export const createOrderController = async (req, res) => {
       user: req.user._id,
       shippingInfo,
       orderItems,
-    //   paymentMethod,
-    //   paymentInfo,
+      //   paymentMethod,
+      //   paymentInfo,
       itemPrice,
       tax,
       shippingCharges,
@@ -48,7 +48,7 @@ export const createOrderController = async (req, res) => {
       // find product
       const product = await productModel.findById(orderItems[i].product);
       product.stock -= orderItems[i].quantity;
-      await product.save()
+      await product.save();
     }
     res.status(201).send({
       success: true,
@@ -78,7 +78,7 @@ export const getAllOrdersController = async (req, res) => {
       success: true,
       message: " order found successfully",
       totalOrders: orders.length,
-      orders
+      orders,
     });
   } catch (error) {
     console.log(error);
@@ -141,7 +141,7 @@ export const paymetsController = async (req, res) => {
 
     res.status(200).send({
       success: true,
-      client_secret
+      client_secret,
     });
   } catch (error) {
     console.log(error);
@@ -153,8 +153,6 @@ export const paymetsController = async (req, res) => {
   }
 };
 
-
-
 //  ===============  ADMIN SECTION  ==============
 
 // get All order
@@ -163,7 +161,7 @@ export const getAllOrdersAdminController = async (req, res) => {
     const orders = await orderModel.find({});
     //valdiation
     if (!orders) {
-      res.status(500).send({
+      res.status(404).send({
         success: false,
         message: "Orders not found",
       });
@@ -172,7 +170,7 @@ export const getAllOrdersAdminController = async (req, res) => {
       success: true,
       message: "All order found successfully",
       totalOrders: orders.length,
-      orders
+      orders,
     });
   } catch (error) {
     console.log(error);
@@ -183,12 +181,45 @@ export const getAllOrdersAdminController = async (req, res) => {
     });
   }
 };
-// Change Order Status  36.... 13:23
+
 export const changeOrderStatusController = async (req, res) => {
   try {
-   
+    //  find order
+    const order = await orderModel.findById(req.params.id);
+    //valdiation
+    if (!order) {
+      res.status(404).send({
+        success: false,
+        message: "Orders not found",
+      });
+    }
+    if (order.orderStatus === "processing") {
+      order.orderStatus = "shipped";
+    } else if (order.orderStatus === "shipped") {
+      order.orderStatus = "deliverd";
+      order.deliverdAt = Date.now();
+    } else {
+      return res.status(500).send({
+        success: false,
+        message: "Order already deliverd",
+      });
+    }
+    await order.save();
+    res.status(200).send({
+      success: true,
+      message: "Order status updated",
+      totalOrders: order.length,
+      order,
+    });
   } catch (error) {
     console.log(error);
+    // cast error ||  OBJECT ID
+    if (error.name === "CastError") {
+      return res.status(500).send({
+        success: false,
+        message: "Invalid Id",
+      });
+    }
     res.status(500).send({
       success: false,
       message: "error in Change Order Status  API",
