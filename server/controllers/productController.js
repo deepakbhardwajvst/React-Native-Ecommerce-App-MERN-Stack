@@ -25,6 +25,31 @@ export const getAllProductController = async (req, res) => {
     });
   }
 };
+//  getting top product
+export const getTopProductController = async (req, res) => {
+  const { keyword, category } = req.query;
+  try {
+    const products = await productModel
+      .find({
+        name: { $regex: keyword ? keyword : "", $options: "i" },
+        // category: category ? category : undefined,
+      })
+      .populate("category");
+    res.status(200).send({
+      success: true,
+      message: "all Product Fetched successfully",
+      totalProducts: products.length,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in all Product API",
+      error,
+    });
+  }
+};
 //  getting single product
 export const getSingleProductController = async (req, res) => {
   try {
